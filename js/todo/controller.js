@@ -4,7 +4,7 @@ import View from "./view.js";
 const model = new Model();
 const view = new View(model.tasks);
 
-//! слушаем нажатие на 'enter' для добавления задачи
+//! добавление задачи
 view.elements.form.addEventListener('submit', (e) => {
     e.preventDefault();
     //! добавляем в задачу текст из инпута
@@ -14,10 +14,11 @@ view.elements.form.addEventListener('submit', (e) => {
     view.clearInput();
 })
 
-// model.aadTask('сделать завтрак');
-// model.aadTask('сделать обед');
-// model.aadTask('сделать ужин');
+//! нажали на чек
+view.elements.addEventListener('click', (e) => {
+    //! проверяем клик по чекбоксу
+    if (e.target.getAttribute('type') === 'checkbox') {
+        
+    }
+})
 
-// model.doneTask(model.tasks[1]);
-
-// console.log(model);
