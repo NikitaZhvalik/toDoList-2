@@ -2,17 +2,16 @@ export default class Model {
     //! массив с объектами(задачами)
     constructor() {
         this.tasks = [];
-        this.LoadFromLocalStorage();
+        this.loadFromLocalStorage();
     }
 
     //! функция загрузки задач
-    LoadFromLocalStorage() {
+    loadFromLocalStorage() {
         const data = localStorage.getItem('tasks'); 
         if (data) {
             this.tasks = JSON.parse(data);
         }
     }
-
 
     //! функция сохранения задач в LocalStorage
     saveToLocalStorage() {
@@ -49,9 +48,13 @@ export default class Model {
     }
 
 
-    //! функция пометки задачи как выполненной
-    doneTask(task) {
-        task.status = 'done'; 
+    //! функция пометки задачи как выполненной/активной
+    changeStatus(task) {
+        if (task.status === 'active') {
+            task.status = 'done';
+        }   else {
+            task.status = 'active';
+        }
         this.saveToLocalStorage();
     }
 
