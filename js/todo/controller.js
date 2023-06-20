@@ -18,7 +18,8 @@ view.elements.form.addEventListener('submit', (e) => {
 view.elements.tasksList.addEventListener('click', (e) => {
     //! проверяем клик по чекбоксу
     if (e.target.getAttribute('type') === 'checkbox') {
-        
+        const id = e.target.closest('.todo-item').dataset.id;
+        const task = model.findTask(id);
+        model.doneTask(task);
     }
 })
-

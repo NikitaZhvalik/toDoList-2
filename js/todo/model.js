@@ -21,7 +21,6 @@ export default class Model {
 
     //! функция добавления задачи
     aadTask(text) {
-        
         //! добавляем айди для каждой задачи 
         let id = 1;
         if (this.tasks.length > 0) {
@@ -38,6 +37,17 @@ export default class Model {
 
         return newTask;
     }
+
+    //! функция поиска задачи по id
+    findTask(id) {
+        const task = this.tasks.find((task) => {
+            if (task.id === parseInt(id)) {
+                return true;
+            }
+        })
+        return task;
+    }
+
 
     //! функция пометки задачи как выполненной
     doneTask(task) {
