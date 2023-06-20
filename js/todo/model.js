@@ -21,7 +21,15 @@ export default class Model {
 
     //! функция добавления задачи
     aadTask(text) {
+        
+        //! добавляем айди для каждой задачи 
+        let id = 1;
+        if (this.tasks.length > 0) {
+            id = this.tasks[this.tasks.length - 1]['id'] + 1;
+        }
+
         const newTask = {
+            id: id,
             status: 'active',
             text: text,
         }

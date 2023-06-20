@@ -15,7 +15,7 @@ view.elements.form.addEventListener('submit', (e) => {
 })
 
 //! нажали на чек
-view.elements.addEventListener('click', (e) => {
+view.elements.tasksList.addEventListener('click', (e) => {
     //! проверяем клик по чекбоксу
     if (e.target.getAttribute('type') === 'checkbox') {
         
